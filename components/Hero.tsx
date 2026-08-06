@@ -52,7 +52,7 @@ export default function Hero() {
             {/* Buttons */}
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="#contact"
+                href="/book"
                 className="rounded-lg bg-[#C7A15A] px-8 py-4 text-lg font-medium text-white transition hover:bg-[#B48B43]"
               >
                 Book a Service
