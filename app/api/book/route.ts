@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     // ===========================
 
     const { data, error } = await resend.emails.send({
-      from: "Tonvana <onboarding@resend.dev>",
+      from: "Tonvana <info@tonvana.com>",
       to: "chrisyanjia@gmail.com",
       replyTo: email,
       subject: `🎹 New Booking Request - ${fullName}`,
@@ -99,7 +99,7 @@ export async function POST(request: Request) {
     // ===========================
 
     await resend.emails.send({
-      from: "Tonvana <onboarding@resend.dev>",
+      from: "Tonvana <info@tonvana.com>",
       to: email,
 
       subject: "We've received your booking request",
