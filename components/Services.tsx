@@ -41,13 +41,13 @@ export default function Services() {
   return (
     <Section
       id="services"
-      className="bg-[var(--surface)]"
+      background="white"
     >
       <Container>
 
         <SectionHeader
-          center
-          label="OUR SERVICES"
+          eyebrow="OUR SERVICES"
+          align="center"
           title={
             <>
               Professional Piano

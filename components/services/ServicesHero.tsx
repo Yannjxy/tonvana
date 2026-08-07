@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import BrandLabel from "@/components/ui/BrandLabel";
 import PrimaryButton from "@/components/ui/PrimaryButton";
@@ -9,15 +8,15 @@ import SecondaryButton from "@/components/ui/SecondaryButton";
 import { assets } from "@/lib/config/assets";
 import { siteConfig } from "@/lib/config/site";
 
-export default function AboutHero() {
+export default function ServicesHero() {
   return (
-    <Section className="relative flex min-h-[85vh] items-center overflow-hidden py-0">
+    <section className="relative flex min-h-[75vh] items-center overflow-hidden">
 
       {/* Background */}
 
       <Image
-        src={assets.aboutHero}
-        alt={`About ${siteConfig.name}`}
+        src={assets.servicesHero}
+        alt={`${siteConfig.name} Professional Piano Services`}
         fill
         priority
         sizes="100vw"
@@ -26,48 +25,34 @@ export default function AboutHero() {
 
       {/* Overlay */}
 
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
 
       {/* Content */}
 
       <Container className="relative z-10">
 
-        <div className="max-w-3xl text-white">
+        <div className="max-w-2xl text-white">
 
           {/* Brand */}
 
           <BrandLabel>
-            ABOUT {siteConfig.name.toUpperCase()}
+            OUR SERVICES
           </BrandLabel>
 
           {/* Title */}
 
           <h1 className="mt-6 font-serif text-5xl font-semibold leading-tight md:text-7xl">
-
-            Professional Piano Care
-
+            Professional
             <br />
-
-            for Every
-
-            <span className="text-[var(--brand-gold)]">
-              {" "}
-              Instrument
-            </span>
-
+            Piano Services
           </h1>
 
           {/* Description */}
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-stone-200">
-
-            At {siteConfig.name}, we believe every piano deserves
-            thoughtful, professional care. From routine tuning to
-            detailed maintenance and repair, our goal is to preserve
-            the beauty, touch, and voice of every instrument for years
-            to come throughout {siteConfig.city} and surrounding
-            communities.
-
+          <p className="mt-8 max-w-xl text-lg leading-8 text-white/90">
+            Complete tuning, regulation, repair and maintenance
+            for upright and grand pianos throughout{" "}
+            {siteConfig.city} and surrounding communities.
           </p>
 
           {/* Buttons */}
@@ -82,7 +67,7 @@ export default function AboutHero() {
             </PrimaryButton>
 
             <SecondaryButton
-              href="/"
+              href="#service-grid"
               className="
                 border-white
                 text-white
@@ -91,7 +76,7 @@ export default function AboutHero() {
                 hover:text-black
               "
             >
-              Back to Home
+              Explore Services
             </SecondaryButton>
 
           </div>
@@ -100,6 +85,6 @@ export default function AboutHero() {
 
       </Container>
 
-    </Section>
+    </section>
   );
 }

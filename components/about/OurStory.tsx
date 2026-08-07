@@ -4,11 +4,12 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 
+import { assets } from "@/lib/config/assets";
+
 export default function OurStory() {
   return (
-    <Section className="bg-white">
+    <Section background="white">
       <Container>
-
         <div className="grid items-center gap-16 lg:grid-cols-[40%_60%]">
 
           {/* Left */}
@@ -16,7 +17,8 @@ export default function OurStory() {
           <div>
 
             <SectionHeader
-              label="OUR STORY"
+              eyebrow="OUR STORY"
+              align="left"
               title={
                 <>
                   Every Piano
@@ -47,7 +49,7 @@ export default function OurStory() {
 
               <div className="flex items-start gap-4">
 
-                <div className="mt-2 h-2.5 w-2.5 rounded-full bg-[#C7A15A]" />
+                <div className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--brand-gold)]" />
 
                 <div>
 
@@ -66,7 +68,7 @@ export default function OurStory() {
 
               <div className="flex items-start gap-4">
 
-                <div className="mt-2 h-2.5 w-2.5 rounded-full bg-[#C7A15A]" />
+                <div className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--brand-gold)]" />
 
                 <div>
 
@@ -85,7 +87,7 @@ export default function OurStory() {
 
               <div className="flex items-start gap-4">
 
-                <div className="mt-2 h-2.5 w-2.5 rounded-full bg-[#C7A15A]" />
+                <div className="mt-2 h-2.5 w-2.5 rounded-full bg-[var(--brand-gold)]" />
 
                 <div>
 
@@ -113,10 +115,11 @@ export default function OurStory() {
             <div className="overflow-hidden rounded-[32px] shadow-2xl">
 
               <Image
-                src="/images/about-story.jpg"
+                src={assets.aboutStory}
                 alt="Professional Piano Tuning"
                 width={900}
                 height={1200}
+                sizes="(max-width: 1024px) 100vw, 60vw"
                 className="
                   h-[720px]
                   w-full
@@ -132,7 +135,6 @@ export default function OurStory() {
           </div>
 
         </div>
-
       </Container>
     </Section>
   );

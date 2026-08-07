@@ -1,6 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
+
+import { siteConfig } from "@/lib/config/site";
+import { seoConfig } from "@/lib/config/seo";
+import StructuredData from "@/components/SEO/StructuredData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,36 +18,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tonvana.com"),
+  metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: "Tonvana | Professional Piano Tuning",
-    template: "%s | Tonvana",
+    default: seoConfig.title,
+    template: `%s | ${siteConfig.name}`,
   },
 
-  description:
-    "Professional piano tuning, repair, regulation and maintenance services in Winnipeg and surrounding communities.",
+  description: seoConfig.description,
 
-  keywords: [
-    "Piano Tuning",
-    "Piano Technician",
-    "Piano Repair",
-    "Piano Regulation",
-    "Piano Maintenance",
-    "Winnipeg",
-    "Manitoba",
-    "Tonvana",
-  ],
+  keywords: seoConfig.keywords,
 
   authors: [
     {
-      name: "Tonvana",
+      name: seoConfig.author,
     },
   ],
 
-  creator: "Tonvana",
+  creator: seoConfig.creator,
 
-  publisher: "Tonvana",
+  publisher: siteConfig.name,
+
+  alternates: {
+    canonical: "/",
+  },
 
   robots: {
     index: true,
@@ -50,17 +49,28 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Tonvana | Professional Piano Tuning",
-    description:
-      "Professional piano tuning, repair and maintenance services in Winnipeg, Manitoba.",
-
-    url: "https://tonvana.com",
-
-    siteName: "Tonvana",
-
-    locale: "en_CA",
-
     type: "website",
+    locale: "en_CA",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: seoConfig.title,
+    description: seoConfig.description,
+
+    images: [
+      {
+        url: seoConfig.openGraphImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: seoConfig.title,
+    description: seoConfig.description,
+    images: [seoConfig.openGraphImage],
   },
 
   icons: {
@@ -70,7 +80,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#D4AF37",
+  themeColor: "#C7A15A",
 };
 
 export default function RootLayout({
@@ -80,11 +90,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-  lang="en"
-  data-scroll-behavior="smooth"
-  className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
->
-      <body className="min-h-screen bg-stone-50 text-stone-900">
+      lang="en-CA"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-screen bg-[var(--background)] text-[var(--text-primary)]">
+        <StructuredData />
         {children}
       </body>
     </html>

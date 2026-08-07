@@ -1,59 +1,50 @@
 import BrandLabel from "./BrandLabel";
 
 interface SectionHeaderProps {
-  label: string;
+  eyebrow?: string;
   title: React.ReactNode;
   description?: React.ReactNode;
-  center?: boolean;
-  light?: boolean;
+  align?: "left" | "center";
+  className?: string;
 }
 
 export default function SectionHeader({
-  label,
+  eyebrow,
   title,
   description,
-  center = false,
-  light = false,
+  align = "center",
+  className = "",
 }: SectionHeaderProps) {
+  const alignment =
+    align === "left"
+      ? "text-left"
+      : "text-center";
+
   return (
     <div
       className={`
-        ${center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}
+        ${alignment}
+        ${className}
       `}
     >
-      <BrandLabel>{label}</BrandLabel>
-
-      <h2
-        className={`
-          mt-5
-          font-serif
-          text-4xl
-          font-semibold
-          leading-tight
-          md:text-5xl
-          ${
-            light
-              ? "text-white"
-              : "text-[var(--text-primary)]"
+      {eyebrow && (
+        <BrandLabel
+          className={
+            align === "center"
+              ? "justify-center"
+              : ""
           }
-        `}
-      >
+        >
+          {eyebrow}
+        </BrandLabel>
+      )}
+
+      <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
         {title}
       </h2>
 
       {description && (
-        <p
-          className={`
-            mt-8
-            text-lg
-            leading-8
-            ${
-              light
-                ? "text-stone-300"
-                : "text-[var(--text-secondary)]"
-            }
-          `}
-        >
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-stone-600">
           {description}
         </p>
       )}

@@ -5,14 +5,14 @@ import PrimaryButton from "@/components/ui/PrimaryButton";
 
 export default function CTA() {
   return (
-    <Section className="bg-[var(--brand-green)]">
+    <Section background="dark">
       <Container>
         <div className="mx-auto max-w-4xl text-center">
 
           <SectionHeader
-            center
-            light
-            label="BOOK YOUR SERVICE"
+            eyebrow="BOOK YOUR SERVICE"
+            align="center"
+            className="text-white"
             title={
               <>
                 Ready to Keep

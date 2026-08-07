@@ -12,6 +12,8 @@ import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
 import FeatureCard from "@/components/ui/FeatureCard";
 
+import { siteConfig } from "@/lib/config/site";
+
 const features = [
   {
     icon: ShieldCheck,
@@ -40,8 +42,7 @@ const features = [
   {
     icon: MapPin,
     title: "Serving Winnipeg",
-    description:
-      "Professional piano services for homes, schools, churches, studios, and performance venues throughout Winnipeg and surrounding communities.",
+    description: `Professional piano services for homes, schools, churches, studios, and performance venues throughout ${siteConfig.city} and surrounding communities.`,
   },
   {
     icon: HeartHandshake,
@@ -53,12 +54,12 @@ const features = [
 
 export default function WhyChoose() {
   return (
-    <Section className="bg-white">
+    <Section background="white">
       <Container>
 
         <SectionHeader
-          center
-          label="WHY CHOOSE TONVANA"
+          eyebrow="WHY CHOOSE TONVANA"
+          align="center"
           title={
             <>
               Professional Service

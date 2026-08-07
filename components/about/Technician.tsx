@@ -6,6 +6,10 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import InfoCard from "@/components/ui/InfoCard";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 
+import { assets } from "@/lib/config/assets";
+import { siteConfig } from "@/lib/config/site";
+import { CONTACT } from "@/lib/config/constants";
+
 import {
   Clock3,
   MapPin,
@@ -15,7 +19,7 @@ import {
 
 export default function Technician() {
   return (
-    <Section className="bg-[#F8F5EE]">
+    <Section background="light">
       <Container>
 
         {/* Hero Image */}
@@ -23,10 +27,11 @@ export default function Technician() {
         <div className="overflow-hidden rounded-[32px] shadow-2xl">
 
           <Image
-            src="/images/technician.jpg"
-            alt="Professional Piano Care"
+            src={assets.technician}
+            alt={`${siteConfig.name} Professional Piano Care`}
             width={1600}
             height={900}
+            sizes="100vw"
             className="
               h-[520px]
               w-full
@@ -41,8 +46,8 @@ export default function Technician() {
         <div className="mx-auto mt-20 max-w-3xl">
 
           <SectionHeader
-            center
-            label="PROFESSIONAL CARE"
+            eyebrow="PROFESSIONAL CARE"
+            align="center"
             title={
               <>
                 Precision.
@@ -85,16 +90,16 @@ export default function Technician() {
             icon={Clock3}
             title="Business Hours"
           >
-            Tuesday – Saturday
+            {CONTACT.businessHours.weekdays}
             <br />
-            9:00 AM – 5:00 PM
+            {CONTACT.officeHours.weekdays}
           </InfoCard>
 
           <InfoCard
             icon={MapPin}
             title="Service Area"
           >
-            Winnipeg
+            {siteConfig.city}
             <br />
             Surrounding Communities
           </InfoCard>

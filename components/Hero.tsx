@@ -5,17 +5,20 @@ import BrandLabel from "@/components/ui/BrandLabel";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import SecondaryButton from "@/components/ui/SecondaryButton";
 
+import { assets } from "@/lib/config/assets";
+import { siteConfig } from "@/lib/config/site";
+
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
-
       {/* Background */}
 
       <Image
-        src="/images/hero12.png"
-        alt="Tonvana Professional Piano Tuning"
+        src={assets.hero}
+        alt={`${siteConfig.name} Professional Piano Tuning`}
         fill
         priority
+        sizes="100vw"
         className="object-cover"
       />
 
@@ -35,13 +38,12 @@ export default function Hero() {
       {/* Hero Content */}
 
       <Container className="relative z-10">
-
         <div className="max-w-2xl">
 
           {/* Brand */}
 
           <BrandLabel>
-            TONVANA
+            {siteConfig.name.toUpperCase()}
           </BrandLabel>
 
           {/* Title */}
@@ -82,8 +84,8 @@ export default function Hero() {
             "
           >
             Reliable tuning, regulation, maintenance and repair
-            for homes, studios, churches and schools throughout
-            Winnipeg and surrounding communities.
+            for homes, studios, churches and schools throughout{" "}
+            {siteConfig.city} and surrounding communities.
           </p>
 
           {/* Contact */}
@@ -100,27 +102,22 @@ export default function Hero() {
             "
           >
             <div className="flex items-center gap-2">
-
               <span className="text-[var(--brand-gold)]">
                 📍
               </span>
 
-              Winnipeg, Manitoba
-
+              {siteConfig.city}, {siteConfig.province}
             </div>
 
             <div className="flex items-center gap-2">
-
               <span className="text-[var(--brand-gold)]">
                 ☎
               </span>
 
               <span className="font-semibold text-white">
-                431-728-8688
+                {siteConfig.phone}
               </span>
-
             </div>
-
           </div>
 
           {/* Buttons */}
@@ -133,7 +130,6 @@ export default function Hero() {
               gap-5
             "
           >
-
             <PrimaryButton
               href="/book"
               arrow
@@ -142,7 +138,7 @@ export default function Hero() {
             </PrimaryButton>
 
             <SecondaryButton
-              href="#services"
+              href="/services"
               className="
                 border-white
                 text-white
@@ -151,13 +147,12 @@ export default function Hero() {
                 hover:text-black
               "
             >
-              Learn More
+              Explore Services
             </SecondaryButton>
 
           </div>
 
         </div>
-
       </Container>
 
     </section>
