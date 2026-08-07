@@ -1,41 +1,152 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =========================================================
+   Tonvana Design System
+   ========================================================= */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+:root {
+  /* Brand */
+
+  --brand-green: #1f3a2e;
+  --brand-gold: #c7a15a;
+  --brand-gold-dark: #b48b43;
+
+  /* Background */
+
+  --background: #f8f5ee;
+  --surface: #ffffff;
+  --surface-muted: #f5f5f4;
+
+  /* Text */
+
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+
+  /* Radius */
+
+  --radius-sm: 1rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2rem;
+
+  /* Layout */
+
+  --container-width: 80rem;
+  --section-space: 7rem;
+
+  /* Fonts */
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme inline {
+  /* Colors */
+
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+
+  --color-brand-green: var(--brand-green);
+  --color-brand-gold: var(--brand-gold);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  /* Fonts */
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-:root {
-  --forest: #2F4F46;
-  --brass: #B08D57;
-  --ivory: #F7F5F1;
-  --charcoal: #2D2D2D;
-}
+/* =========================================================
+   Base
+   ========================================================= */
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--ivory);
-  color: var(--charcoal);
+  min-height: 100vh;
+
+  background: var(--background);
+
+  color: var(--text-primary);
+
+  font-family: var(--font-sans);
+
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   Typography
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: inherit;
+}
+
+p {
+  line-height: 1.9;
+}
+
+/* =========================================================
+   Links
+   ========================================================= */
+
+a {
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* =========================================================
+   Images
+   ========================================================= */
+
+img {
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+/* =========================================================
+   Selection
+   ========================================================= */
+
+::selection {
+  background: var(--brand-gold);
+
+  color: white;
+}
+
+/* =========================================================
+   Focus
+   ========================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--brand-gold);
+
+  outline-offset: 3px;
 }
